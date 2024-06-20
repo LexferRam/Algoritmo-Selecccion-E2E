@@ -7,10 +7,10 @@ describe('Navegacion', { browser: 'chrome' }, () => {
 
         // Ingresa las credenciales
         await cy.get("input[placeholder='Usuario']").type("SPIRAMIDE")
-        await cy.get("input[placeholder='Clave']").type("")
+        await cy.get("input[placeholder='Clave']").type("Pira360*")
         await cy.contains("button", "Entrar").click()
         
-        // await cy.get('.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-2mufxs').click()
+        await cy.get('.css-rsd2ed-MuiSvgIcon-root').click()
         await cy.contains("button", "Aceptar").click()
 
         await cy.contains("div", "Cotizar y Emitir").click()
@@ -31,6 +31,16 @@ describe('Navegacion', { browser: 'chrome' }, () => {
 
         await cy.get('.PrivateSwitchBase-input').click()
         await cy.contains("button", "Siguiente").click()
+
+        await cy.get(':nth-child(16) > .MuiAccordionSummary-root > .MuiAccordionSummary-content > .container-accordion-question > .MuiFormControl-root > .MuiFormGroup-root > :nth-child(1) > .MuiButtonBase-root > .PrivateSwitchBase-input').click()
+        await cy.get('.MuiSelect-select').click()
+        await cy.get('.MuiMenuItem-root').click()
+        await cy.get('#mui-component-select-usrTblResp_542_543_24862125').click()
+        await cy.get('[data-value="M"]').click()
+        await cy.get("input[placeholder='Ingrese descripción']").first().focus()
+        await cy.get('.MuiTableBody-root > .MuiTableRow-root > :nth-child(4)').type("Mucho tiempooo")
+        await cy.get("input[placeholder='Ingrese descripción']").last().focus()
+        await cy.get('.MuiTableBody-root > .MuiTableRow-root > :nth-child(5)').type("test")
     })
 
 })
